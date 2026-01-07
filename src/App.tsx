@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { NFLGames } from './components/NFLGames'
 import { HistoricalGames } from './components/HistoricalGames'
+import { Chatbot } from './components/Chatbot'
 
 function App() {
   const [currentPage, setCurrentPage] = useState<'current' | 'historical'>('current');
@@ -24,6 +25,9 @@ function App() {
       </nav>
       
       {currentPage === 'current' ? <NFLGames /> : <HistoricalGames />}
+      
+      {/* AI Chatbot - visible on all pages */}
+      <Chatbot />
     </div>
   )
 }

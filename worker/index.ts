@@ -22,6 +22,7 @@ import {
   populateSeason,
   populateWeek,
 } from "./populate-db.js";
+import { processChat, type ChatMessage } from "./chatbot.js";
 
 const app = express();
 app.use(express.json());
@@ -741,6 +742,57 @@ app.post("/api/db/populate", async (req, res) => {
       message: `Database population completed: ${result.success} games inserted, ${result.errors} errors`,
     });
   } catch (error) {
+    res.status(500).json({
+      ok: false,
+      error: error instanceof Error ? error.message : String(error),
+    });
+  }
+});
+
+/**
+ * -----------------------
+ * AI Chatbot Endpoint
+ * -----------------------
+ * Natural language search of historical NFL data
+ */
+app.post("/api/chat", async (req, res) => {
+  try {
+    const reqAny = req as any;
+    const db = (req.env?.DB || workerEnv?.DB || reqAny[ENV_SYMBOL]?.DB || req.app?.locals?.env?.DB || (globalThis as any).__WORKER_ENV__?.DB) as D1Database | undefined;
+    
+    if (!db) {
+      return res.status(503).json({
+        ok: false,
+        error: "Database not available. Make sure D1 database is configured.",
+      });
+    }
+
+    const { message, history } = req.body;
+    
+    if (!message || typeof message !== 'string') {
+      return res.status(400).json({
+        ok: false,
+        error: "Please provide a 'message' string in the request body",
+      });
+    }
+
+    // Get OpenAI API key from environment
+    const openaiApiKey = req.env?.OPENAI_API_KEY || workerEnv?.OPENAI_API_KEY || '';
+    
+    const result = await processChat(
+      db,
+      message,
+      openaiApiKey,
+      history as ChatMessage[] || []
+    );
+
+    res.json({
+      ok: true,
+      response: result.response,
+      games: result.games || [],
+    });
+  } catch (error) {
+    console.error('Chat endpoint error:', error);
     res.status(500).json({
       ok: false,
       error: error instanceof Error ? error.message : String(error),
