@@ -1,0 +1,704 @@
+.app-container {
+	width: 100%;
+	min-height: 100vh;
+	padding: 2rem;
+}
+
+/* Navigation */
+.main-nav {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	margin-bottom: 2rem;
+	padding-bottom: 1rem;
+	border-bottom: 2px solid #333;
+}
+
+.main-nav button {
+	padding: 0.75rem 1.5rem;
+	font-size: 1rem;
+	font-weight: 600;
+	border: 2px solid #646cff;
+	background-color: transparent;
+	color: #646cff;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: all 0.2s;
+}
+
+.main-nav button:hover {
+	background-color: rgba(100, 108, 255, 0.1);
+	transform: translateY(-2px);
+}
+
+.main-nav button.active {
+	background-color: #646cff;
+	color: #fff;
+}
+
+/* NFL Games Container */
+.nfl-games-container {
+	max-width: 1400px;
+	margin: 0 auto;
+}
+
+.games-header {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.header-top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1rem;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.games-header h1 {
+	font-size: 2.5rem;
+	margin: 0;
+	color: #fff;
+}
+
+.historical-link {
+	padding: 0.5rem 1rem;
+	background-color: rgba(100, 108, 255, 0.2);
+	color: #646cff;
+	text-decoration: none;
+	border-radius: 6px;
+	border: 1px solid #646cff;
+	font-weight: 500;
+	transition: all 0.2s;
+}
+
+.historical-link:hover {
+	background-color: rgba(100, 108, 255, 0.3);
+	transform: translateY(-1px);
+}
+
+.week-selector {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	margin-top: 1rem;
+}
+
+.week-selector button {
+	padding: 0.5rem 1rem;
+	font-size: 0.9rem;
+	border-radius: 6px;
+	border: 1px solid #646cff;
+	background-color: #1a1a1a;
+	color: #fff;
+	cursor: pointer;
+	transition: all 0.2s;
+}
+
+.week-selector button:hover:not(:disabled) {
+	background-color: #646cff;
+	transform: translateY(-1px);
+}
+
+.week-selector button:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.week-label {
+	font-weight: 600;
+	color: #fff;
+	min-width: 100px;
+}
+
+/* Games Grid */
+.games-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+	gap: 1.5rem;
+	margin-top: 2rem;
+}
+
+/* Game Card */
+.game-card {
+	background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+	border-radius: 12px;
+	padding: 1.5rem;
+	border: 1px solid #333;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.game-card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.game-header {
+	margin-bottom: 1rem;
+}
+
+.teams {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.5rem;
+}
+
+.team {
+	flex: 1;
+	text-align: center;
+}
+
+.team-name {
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: #fff;
+	display: block;
+}
+
+.away-team .team-name {
+	color: #a0a0a0;
+}
+
+.home-team .team-name {
+	color: #646cff;
+	font-weight: 700;
+}
+
+.vs {
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: #646cff;
+	margin: 0 0.5rem;
+}
+
+.game-info {
+	margin-bottom: 1rem;
+	padding-top: 1rem;
+	border-top: 1px solid #333;
+}
+
+.date-time {
+	margin-bottom: 0.5rem;
+}
+
+.date-time-full {
+	font-size: 1rem;
+	color: #fff;
+	font-weight: 600;
+	display: block;
+	line-height: 1.4;
+}
+
+.location {
+	font-size: 0.85rem;
+	color: #888;
+	margin-top: 0.5rem;
+}
+
+/* Weather Section */
+.weather-section {
+	background: rgba(100, 108, 255, 0.1);
+	border-radius: 8px;
+	padding: 1rem;
+	margin-top: 1rem;
+	border: 1px solid rgba(100, 108, 255, 0.2);
+}
+
+.weather-main {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin-bottom: 0.75rem;
+}
+
+.weather-icon {
+	font-size: 2.5rem;
+}
+
+.weather-temp {
+	display: flex;
+	flex-direction: column;
+}
+
+.temperature {
+	font-size: 1.8rem;
+	font-weight: bold;
+	color: #fff;
+}
+
+.condition {
+	font-size: 0.9rem;
+	color: #ccc;
+	text-transform: capitalize;
+}
+
+.weather-details {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	padding-top: 0.75rem;
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.weather-detail {
+	display: flex;
+	gap: 0.5rem;
+	font-size: 0.85rem;
+}
+
+.weather-detail .label {
+	color: #aaa;
+}
+
+.weather-detail .value {
+	color: #fff;
+	font-weight: 500;
+}
+
+/* Loading & Error States */
+.loading-container,
+.error-container {
+	text-align: center;
+	padding: 3rem;
+}
+
+.spinner {
+	border: 4px solid rgba(100, 108, 255, 0.2);
+	border-top: 4px solid #646cff;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	animation: spin 1s linear infinite;
+	margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+.error-container button {
+	margin-top: 1rem;
+	padding: 0.75rem 1.5rem;
+	background-color: #646cff;
+	color: #fff;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	font-size: 1rem;
+}
+
+.error-container button:hover {
+	background-color: #535bf2;
+}
+
+.no-games {
+	text-align: center;
+	padding: 3rem;
+	color: #aaa;
+	font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.games-grid {
+		grid-template-columns: 1fr;
+	}
+	
+	.games-header h1 {
+		font-size: 2rem;
+	}
+	
+	.week-selector {
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	
+	.week-selector button {
+		width: 100%;
+		max-width: 200px;
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	.games-header h1,
+	.team-name,
+	.temperature,
+	.weather-detail .value {
+		color: #213547;
+	}
+	
+	.game-card {
+		background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+		border: 1px solid #ddd;
+	}
+	
+	.away-team .team-name {
+		color: #666;
+	}
+	
+	.home-team .team-name {
+		color: #646cff;
+	}
+	
+	.week-selector button {
+		background-color: #f9f9f9;
+		color: #213547;
+	}
+	
+	.weather-section {
+		background: rgba(100, 108, 255, 0.05);
+		border: 1px solid rgba(100, 108, 255, 0.1);
+	}
+	
+	.date-time-full {
+		color: #213547;
+	}
+	
+	.date,
+	.location,
+	.condition,
+	.weather-detail .label {
+		color: #666;
+	}
+	
+	.error-container button {
+		background-color: #646cff;
+		color: #fff;
+	}
+	
+	.header-top {
+		justify-content: center;
+	}
+	
+	.historical-link {
+		margin-top: 0.5rem;
+	}
+}
+
+.error-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 400px;
+	padding: 2rem;
+}
+
+.error-content {
+	text-align: center;
+	max-width: 600px;
+	background: rgba(255, 0, 0, 0.1);
+	border: 2px solid rgba(255, 0, 0, 0.3);
+	border-radius: 12px;
+	padding: 2rem;
+}
+
+.error-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.error-content h2 {
+	color: #fff;
+	margin-bottom: 1rem;
+	font-size: 1.5rem;
+}
+
+.error-message {
+	color: #ff6b6b;
+	margin-bottom: 1.5rem;
+	font-size: 1.1rem;
+}
+
+.database-setup-instructions {
+	text-align: left;
+	background: rgba(100, 108, 255, 0.1);
+	border: 1px solid rgba(100, 108, 255, 0.3);
+	border-radius: 8px;
+	padding: 1.5rem;
+	margin: 1.5rem 0;
+}
+
+.database-setup-instructions h3 {
+	color: #fff;
+	margin-bottom: 1rem;
+	font-size: 1.2rem;
+}
+
+.database-setup-instructions ol {
+	color: #ccc;
+	margin-left: 1.5rem;
+	line-height: 1.8;
+}
+
+.database-setup-instructions code {
+	background: rgba(0, 0, 0, 0.3);
+	padding: 0.2rem 0.5rem;
+	border-radius: 4px;
+	font-family: 'Courier New', monospace;
+	color: #646cff;
+}
+
+.database-setup-instructions .note {
+	color: #aaa;
+	font-style: italic;
+	margin-top: 1rem;
+	font-size: 0.9rem;
+}
+
+.error-content button {
+	padding: 0.75rem 2rem;
+	background-color: #646cff;
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 1rem;
+	font-weight: 600;
+	margin-top: 1rem;
+	transition: background-color 0.2s;
+}
+
+.error-content button:hover {
+	background-color: #535bf2;
+}
+
+/* Historical Games Table Styles */
+.historical-games-container {
+	max-width: 1600px;
+	margin: 0 auto;
+}
+
+.historical-header {
+	margin-bottom: 2rem;
+}
+
+.historical-header h1 {
+	font-size: 2.5rem;
+	text-align: center;
+	margin-bottom: 1.5rem;
+	color: #fff;
+}
+
+.filters {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	flex-wrap: wrap;
+	padding: 1rem;
+	background: rgba(100, 108, 255, 0.1);
+	border-radius: 8px;
+	border: 1px solid rgba(100, 108, 255, 0.2);
+}
+
+.filter-group {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.filter-group label {
+	color: #fff;
+	font-weight: 500;
+}
+
+.filter-group select,
+.filter-group input {
+	padding: 0.5rem;
+	border-radius: 6px;
+	border: 1px solid #444;
+	background-color: #1a1a1a;
+	color: #fff;
+	font-size: 0.9rem;
+}
+
+.filter-group input {
+	min-width: 200px;
+}
+
+.filters button {
+	padding: 0.5rem 1rem;
+	background-color: #646cff;
+	color: #fff;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	font-weight: 500;
+	transition: background-color 0.2s;
+}
+
+.filters button:hover {
+	background-color: #535bf2;
+}
+
+.table-container {
+	overflow-x: auto;
+	background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+	border-radius: 12px;
+	padding: 1rem;
+	border: 1px solid #333;
+}
+
+.games-table {
+	width: 100%;
+	border-collapse: collapse;
+	color: #fff;
+	font-size: 0.9rem;
+}
+
+.games-table thead {
+	background-color: rgba(100, 108, 255, 0.2);
+}
+
+.games-table th {
+	padding: 0.75rem 0.5rem;
+	text-align: left;
+	font-weight: 600;
+	border-bottom: 2px solid #444;
+	position: sticky;
+	top: 0;
+	background-color: rgba(100, 108, 255, 0.2);
+	font-size: 0.85rem;
+	white-space: nowrap;
+}
+
+.games-table th.sortable {
+	cursor: pointer;
+	user-select: none;
+	transition: background-color 0.2s;
+}
+
+.games-table th.sortable:hover {
+	background-color: rgba(100, 108, 255, 0.3);
+}
+
+.games-table td {
+	padding: 0.5rem;
+	border-bottom: 1px solid #333;
+	font-size: 0.85rem;
+	white-space: nowrap;
+}
+
+.games-table tbody tr {
+	transition: background-color 0.2s;
+}
+
+.games-table tbody tr:hover {
+	background-color: rgba(255, 255, 255, 0.05);
+}
+
+.games-table .home-team {
+	font-weight: 600;
+	color: #646cff;
+}
+
+.games-table .score {
+	font-weight: 600;
+	font-size: 1.1rem;
+}
+
+.games-table .game-time {
+	font-size: 0.8rem;
+	color: #aaa;
+	margin-top: 0.25rem;
+}
+
+.games-table .location {
+	font-size: 0.85rem;
+	color: #aaa;
+}
+
+.games-table .empty-cell {
+	color: #888;
+	font-style: italic;
+	min-width: 80px;
+}
+
+.games-table .empty-cell:not(:contains('—')) {
+	font-style: normal;
+	color: #fff;
+}
+
+.table-footer {
+	margin-top: 1rem;
+	padding-top: 1rem;
+	border-top: 1px solid #333;
+	text-align: center;
+	color: #aaa;
+	font-size: 0.9rem;
+}
+
+.table-footer .data-note {
+	font-size: 0.85rem;
+	color: #888;
+	margin-top: 0.5rem;
+	font-style: italic;
+}
+
+@media (max-width: 1200px) {
+	.games-table {
+		font-size: 0.85rem;
+	}
+	
+	.games-table th,
+	.games-table td {
+		padding: 0.5rem;
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	.historical-header h1 {
+		color: #213547;
+	}
+	
+	.filter-group label {
+		color: #213547;
+	}
+	
+	.filter-group select,
+	.filter-group input {
+		background-color: #fff;
+		color: #213547;
+		border: 1px solid #ddd;
+	}
+	
+	.table-container {
+		background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+		border: 1px solid #ddd;
+	}
+	
+	.games-table {
+		color: #213547;
+	}
+	
+	.games-table thead {
+		background-color: rgba(100, 108, 255, 0.1);
+	}
+	
+	.games-table th {
+		background-color: rgba(100, 108, 255, 0.1);
+		border-bottom: 2px solid #ddd;
+	}
+	
+	.games-table td {
+		border-bottom: 1px solid #ddd;
+	}
+	
+	.games-table tbody tr:hover {
+		background-color: rgba(100, 108, 255, 0.05);
+	}
+	
+	.games-table .home-team {
+		color: #646cff;
+	}
+	
+	.table-footer {
+		border-top: 1px solid #ddd;
+		color: #666;
+	}
+}
